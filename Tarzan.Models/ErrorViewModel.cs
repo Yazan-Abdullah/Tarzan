@@ -1,4 +1,4 @@
-namespace TarzanStore.Models
+namespace Tarzan.Models
 {
     public class ErrorViewModel
     {
