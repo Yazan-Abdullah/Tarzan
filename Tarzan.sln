@@ -5,11 +5,11 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TarzanStore", "TarzanStore\TarzanStore.csproj", "{49D225D8-E942-47F1-9818-4DC5B247DA64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarzan.DataAccess", "Tarzan.DataAccess\Tarzan.DataAccess.csproj", "{8707E7C3-7A9E-4963-A69D-60A3FC2E5206}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tarzan.DataAccess", "Tarzan.DataAccess\Tarzan.DataAccess.csproj", "{8707E7C3-7A9E-4963-A69D-60A3FC2E5206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarzan.Models", "Tarzan.Models\Tarzan.Models.csproj", "{6895BE22-7A15-4226-92DB-9AA926B6F48B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tarzan.Models", "Tarzan.Models\Tarzan.Models.csproj", "{6895BE22-7A15-4226-92DB-9AA926B6F48B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarzan.Utility", "Tarzan.Utility\Tarzan.Utility.csproj", "{83DF32B2-A518-45E0-9274-ECC9915C6C0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tarzan.Utility", "Tarzan.Utility\Tarzan.Utility.csproj", "{83DF32B2-A518-45E0-9274-ECC9915C6C0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
