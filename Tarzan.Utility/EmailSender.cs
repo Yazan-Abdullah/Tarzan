@@ -21,7 +21,7 @@ namespace Tarzan.Utility {
 
             var client = new SendGridClient(SendGridSecret);
 
-            var from = new EmailAddress("hello@dotnetmastery.com", "Bulky Book");
+            var from = new EmailAddress("yazanabdullah705@gmail.com", "Tarzan Store");
             var to = new EmailAddress(email);
             var message = MailHelper.CreateSingleEmail(from, to, subject, "", htmlMessage);
 

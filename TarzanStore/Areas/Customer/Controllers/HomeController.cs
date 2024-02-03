@@ -5,6 +5,7 @@ using System.Security.Claims;
 using Tarzan.DataAccess.Repository.IRepository;
 using Tarzan.Models;
 using Tarzan.Models.ViewModels;
+using Tarzan.Utility;
 
 namespace TarzanStore.Areas.Customer.Controllers
 {
@@ -39,6 +40,7 @@ namespace TarzanStore.Areas.Customer.Controllers
         [Authorize] // i add this becous any one want to add to the cart must be login 
         public IActionResult Details(ShoppingCart shoppingCart)
         {
+            //getting the user info
            var claimsIdentity = (ClaimsIdentity)User.Identity;
             var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
             shoppingCart.ApplicationUserId = userId;
@@ -47,15 +49,21 @@ namespace TarzanStore.Areas.Customer.Controllers
                 .Get(u => u.ApplicationUserId == userId && u.ProductId == shoppingCart.ProductId);
             if(cartFromDb != null)
             {
+                //shopping cart exists
                 cartFromDb.Count += shoppingCart.Count;
                 _unitOfWork.ShoppingCart.Update(cartFromDb);
+                _unitOfWork.Save();
             }
             else
             {
+                //add cart record
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
+                _unitOfWork.Save();
+                HttpContext.Session.SetInt32(SD.SessionCart,
+                _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId).Count());
             }
             TempData["success"] = "Cart updated successfully";
-            _unitOfWork.Save();
+            
 
             return RedirectToAction(nameof(Index));
         }
