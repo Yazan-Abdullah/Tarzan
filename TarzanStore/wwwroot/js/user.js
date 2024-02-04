@@ -56,7 +56,7 @@ function loadDataTable() {
 function LockUnlock(id) {
     $.ajax({
         type: "POST",
-        url: '/Admin/User/LockUnlock',
+        url: 'Areas/Admin/UserController/LockUnlock',
         data: JSON.stringify(id),
         contentType: "application/json",
         success: function (data) {
