@@ -1,5 +1,36 @@
 ﻿@model IEnumerable<Product>
 
+@{
+    ViewBag.Title = "Product List";
+}
+
+<div class="row pb-3">
+    <div class="col-lg-12">
+        <form method="get" action="@Url.Action("Index", "Home")">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search products" name="search">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-select" name="author">
+                    <option value="">All Authors</option>
+                    @foreach (var author in Model.Select(p => p.Author).Distinct())
+                    {
+                        <option value="@author">@author</option>
+                    }
+                </select>
+                <select class="form-select" name="category">
+                    <option value="">All Categories</option>
+                    @foreach (var category in Model.Select(p => p.Category.Name).Distinct())
+                    {
+                        <option value="@category">@category</option>
+                    }
+                </select>
+                <button class="btn btn-outline-secondary" type="submit">Filter</button>
+            </div>
+        </form>
+    </div>
+</div>
 <div class="row pb-3">
     @foreach(var product in Model)
     {

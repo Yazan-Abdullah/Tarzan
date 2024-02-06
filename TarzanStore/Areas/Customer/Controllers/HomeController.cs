@@ -20,10 +20,37 @@ namespace TarzanStore.Areas.Customer.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        //public IActionResult Index()
+        //{
+        //    IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category,ProductImages");
+        //    return View(productList);
+        //}
+        public IActionResult Index(string search, string author, string category)
         {
-            IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category,ProductImages");
-            return View(productList);
+            // Get all products with related entities
+            var productList = _unitOfWork.Product.GetAll(includeProperties: "Category,ProductImages");
+
+            // Apply search filter
+            if (!string.IsNullOrEmpty(search))
+            {
+                productList = productList.Where(p => p.Title.Contains(search)
+                                                    || p.Author.Contains(search)
+                                                    || p.Category.Name.Contains(search));
+            }
+
+            // Apply author filter
+            if (!string.IsNullOrEmpty(author))
+            {
+                productList = productList.Where(p => p.Author.Contains(author));
+            }
+
+            // Apply category filter
+            if (!string.IsNullOrEmpty(category))
+            {
+                productList = productList.Where(p => p.Category.Name.Contains(category));
+            }
+
+            return View(productList.ToList());
         }
         public IActionResult Details(int productId)
         {
