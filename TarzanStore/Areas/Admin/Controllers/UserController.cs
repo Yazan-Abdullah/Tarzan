@@ -1,9 +1,4 @@
-﻿using Tarzan.DataAccess.Repository.IRepository;
-using Tarzan.DataAccess.Data;
-using Tarzan.Models;
-using Tarzan.Models.ViewModels;
-using Tarzan.Utility;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -15,7 +10,7 @@ using Tarzan.Models.ViewModels;
 using Tarzan.Models;
 using Tarzan.Utility;
 
-namespace TarzanStore.Areas.Admin.Controllers
+namespace BulkyBookWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = SD.Role_Admin)]

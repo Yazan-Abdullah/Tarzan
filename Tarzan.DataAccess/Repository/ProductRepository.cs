@@ -32,10 +32,11 @@ namespace Tarzan.DataAccess.Repository
                 objFromDb.ISBN = obj.ISBN;
                 objFromDb.Author = obj.Author;
                 objFromDb.ListPrice = obj.ListPrice;
-                if(objFromDb.ImageUrl != null)
-                {
-                    objFromDb.ImageUrl = obj.ImageUrl;
-                }
+                objFromDb.ProductImages = obj.ProductImages;
+                //if(objFromDb.ImageUrl != null)
+                //{
+                //    objFromDb.ImageUrl = obj.ImageUrl;
+                //}
             }
         }
     }
